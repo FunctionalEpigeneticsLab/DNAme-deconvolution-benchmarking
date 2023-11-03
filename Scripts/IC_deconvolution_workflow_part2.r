@@ -398,4 +398,6 @@ for (u in normalizations){
   x[,2] <- unlist(l)
   longlist <- rbind(longlist, x)
 }
+
+##Write results into 'Deconvolution_results.csv' file
 write.csv(longlist[-1,], 'Deconvolution_results.csv')
