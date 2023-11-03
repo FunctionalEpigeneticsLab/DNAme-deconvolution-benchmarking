@@ -10,6 +10,7 @@ Python 3.8.11
 R version 4.1.1
 ```
 ## Dependencies
+```
 R-packages:
   - glmnet
   - bvls
@@ -32,6 +33,7 @@ Python-packages:
   - pandas
   - scipy
   - multiprocessing
+```
 
 
 ## Bioinformatics processing
