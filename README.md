@@ -68,7 +68,7 @@ Example code:
 ```
 ## Docker/singularity
 
-This code can be run using the following image: 
+This code can be run using the following image (Python 3.10.6, R 4.3.0): 
 ```
 docker://kobedr/deconvolution_benchmark:latest
 ```
