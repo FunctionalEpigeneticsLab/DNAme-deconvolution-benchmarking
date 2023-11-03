@@ -114,7 +114,7 @@ class Deconvolve:
 
 
 
-real = pd.read_csv([sys.argv][0], index_col = 0, sep = ',')
+real = pd.read_csv(sys.argv[1], index_col = 0, sep = ',')
 methods = ['none', 'z_score', 'min_max', 'col_z_score', 'col_min_max', 'QN', 'lognorm']
 for method in methods:
     path = f'./Cache/{method}_reference.csv'
