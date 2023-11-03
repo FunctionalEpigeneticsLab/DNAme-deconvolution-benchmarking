@@ -1,3 +1,4 @@
+## Strip algorithms of inherent normalization
 projectCellType <- function(Y, coefCellType, contrastCellType = NULL,
                             nonnegative = TRUE, lessThanOne = FALSE) {
   if (is.null(contrastCellType)) {
@@ -1299,6 +1300,8 @@ fVMR<-function(signif.only=F,vmp.tab,vmp.fdr,n.vmp,vmr.fdr,Mtab,exclude.regions,
   
 }
 
+
+##Load in libraries
 library(glmnet)
 library(bvls)
 library(preprocessCore)
