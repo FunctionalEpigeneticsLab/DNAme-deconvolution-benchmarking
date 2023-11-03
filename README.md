@@ -4,6 +4,12 @@ The scripts provide details for the deconvolutions performed in the manuscript e
 
 > This is not the release of a software package. All scripts and binaries are provided as is, without any warranty. We are only providing this information and code in addition to the description of methods for making it easier to reproduce deconvolutions.
 
+## Installation
+```
+git clone https://github.com/FunctionalEpigeneticsLab/DNAme-deconvolution-benchmarking.git
+cd DNAme-deconvolution-benchmarking
+```
+
 ## Versions
 ```
 Python 3.8.11
@@ -60,7 +66,17 @@ Example code:
 ```
   ./Run_deconv.sh /path/to/ref_df.csv /path/to/val_df.csv /path/to/props_df.csv 0.05 100
 ```
+## Docker/singularity
 
+This code can be run using the following image: 
+```
+docker://kobedr/deconvolution_benchmark:latest
+```
+
+Singularity example for demo dataset:
+```
+singularity exec docker://kobedr/deconvolution_benchmark:latest ./Run_deconv.sh ./Demo_dataset/test_reference_dataset.csv ./Demo_dataset/test_validation_dataset.csv ./Demo_dataset/proportions.csv 0.05 100
+```
 ## Demo run time
 
 Less than an hour.
