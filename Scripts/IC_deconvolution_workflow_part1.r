@@ -27,7 +27,7 @@ for(i in colnames(props)){
 }
 
 output_selection = identifyCpgs(ref, celltypes, args[4], args[5])
-mcpgs = output_selection$cpgs
+mcpgs = unique(output_selection$cpgs)
 
 
 ## Production of normalized reference matrices
@@ -110,7 +110,7 @@ for (u in normalizations){
   for(i in colnames(ref)){
     ref[,i] <- apply(tmp_dataset[mcpgs, celltypes == i], 1, mean)
   }
-  write.csv(ref, paste0('Cache/', method, '_reference.csv'))
+  write.csv(unique(na.omit(ref)), paste0('Cache/', method, '_reference.csv'))
 }
 
 
@@ -190,6 +190,6 @@ for (u in normalizations){
   tmp_dataset <- normaliz(dataset)
   
   
-  write.csv(tmp_dataset[mcpgs,], paste0('Cache/', method, '_mixture.csv'))
+  write.csv(unique(na.omit(tmp_dataset[mcpgs,])), paste0('Cache/', method, '_mixture.csv'))
 }
 
