@@ -190,6 +190,6 @@ for (u in normalizations){
   tmp_dataset <- normaliz(dataset)
   
   
-  write.csv(tmp_dataset, paste0('Cache/', method, '_reference.csv'))
+  write.csv(tmp_dataset, paste0('Cache/', method, '_mixture.csv'))
 }
 
