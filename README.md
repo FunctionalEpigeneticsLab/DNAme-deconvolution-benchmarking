@@ -4,6 +4,12 @@ The scripts provide details for the deconvolutions performed in the manuscript e
 
 > This is not the release of a software package. All scripts and binaries are provided as is, without any warranty. We are only providing this information and code in addition to the description of methods for making it easier to reproduce deconvolutions.
 
+## Installation
+```
+git clone https://github.com/FunctionalEpigeneticsLab/DNAme-deconvolution-benchmarking.git
+cd DNAme-deconvolution-benchmarking
+```
+
 ## Versions
 ```
 Python 3.8.11
