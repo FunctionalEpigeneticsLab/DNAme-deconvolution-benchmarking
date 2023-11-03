@@ -40,7 +40,7 @@ Python-packages:
 
 Sequencing reads were trimmed with TrimGalore! (v0.6.6) to remove potential adapter contamination and to trim off the adaptase-induced addition of random nucleotides. 
 
-Next, trimmed reads were aligned to the reference human genome GRCh37 using Bwameth (v0.2.5). Reads were deduplicated using Picard (v3.1.0) and methylation was called using MethylDackel (v0.6.0). The pipeline used for this can be found in the following repo: https://github.com/KobeDR/Bwameth.
+Next, trimmed reads were aligned to the reference human genome GRCh37 using Bwameth (v0.2.5). Reads were deduplicated using Picard (v3.1.0) and methylation was called using MethylDackel (v0.6.0). The pipeline used for this can be found in the following repo: https://github.com/FunctionalEpigeneticsLab/Bwameth.
 
 Further analyses were performed using R (v4.1.1) and Python (v3.8.11.).
 
