@@ -62,8 +62,10 @@ Example code:
 ```
 ## Docker/singularity
 
-This code can be run using the following image: dockerhub://kobedr/deconvolution_benchmark:latest
-
+This code can be run using the following image: 
+```
+dockerhub://kobedr/deconvolution_benchmark:latest
+```
 ## Demo run time
 
 Less than an hour.
