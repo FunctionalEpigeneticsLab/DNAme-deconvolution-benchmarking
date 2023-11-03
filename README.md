@@ -64,7 +64,12 @@ Example code:
 
 This code can be run using the following image: 
 ```
-dockerhub://kobedr/deconvolution_benchmark:latest
+docker://kobedr/deconvolution_benchmark:latest
+```
+
+Singularity example for demo dataset:
+```
+singularity exec docker://kobedr/deconvolution_benchmark:latest ./Run_deconv.sh ./Demo_dataset/test_reference_dataset.csv ./Demo_dataset/test_validation_dataset.csv ./Demo_dataset/proportions.csv 0.05 100
 ```
 ## Demo run time
 
