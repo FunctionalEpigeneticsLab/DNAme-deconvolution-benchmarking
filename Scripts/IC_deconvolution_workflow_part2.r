@@ -14,7 +14,7 @@ colnames(longlist) <- c('Predicted value', 'True value','Celltype', 'Normalizati
 
 
 ## Perform all deconvolutions per normalization method and store predicted and actual values in 'longlist' variable
-for (u in normalizations){
+for (method in normalizations){
   
   df <- read.csv(paste0('Cache/',method, '_mixture.csv'), row.names = 1)
   ref <- read.csv(paste0('Cache/', method, '_reference.csv'), row.names = 1)
