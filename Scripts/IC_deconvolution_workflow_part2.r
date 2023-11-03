@@ -226,7 +226,7 @@ for (u in normalizations){
   
   #Meth_atlas------
   deconv = 'meth_atlas'
-  predicted_cell_proportions <- read.csv(paste('Cache/',method, '_results_meth_atl.csv', sep = ''))
+  predicted_cell_proportions <- read.csv(paste('Cache/',method, '_results_meth_atl.csv'))
   rownames(predicted_cell_proportions) <- predicted_cell_proportions$X
   predicted_cell_proportions$X <- NULL
   
