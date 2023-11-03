@@ -60,6 +60,9 @@ Example code:
 ```
   ./Run_deconv.sh /path/to/ref_df.csv /path/to/val_df.csv /path/to/props_df.csv 0.05 100
 ```
+## Docker/singularity
+
+This code can be run using the following image: dockerhub://kobedr/deconvolution_benchmark:latest
 
 ## Demo run time
 
