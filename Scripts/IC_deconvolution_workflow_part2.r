@@ -160,7 +160,7 @@ for (u in normalizations){
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
   x[,5] <- rep(deconv, dim(predicted_cell_proportions)[1])
-  
+  l <- c()
   colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, real_cell_proportions[i,])}
