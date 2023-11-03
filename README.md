@@ -56,4 +56,6 @@ Output argument:
   - Csv file containing predicted proportions along with actual proportions, predicted cell type and normalization and deconvolution algorithm that was applied.
 
 Example code:
+```
   ./Run_deconv.sh /path/to/ref_df.csv /path/to/val_df.csv /path/to/props_df.csv 0.05 100
+```
