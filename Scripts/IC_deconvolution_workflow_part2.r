@@ -2,7 +2,7 @@
 args = commandArgs(trailingOnly=TRUE)
 props_path = args[1]
 real_cell_proportions = read.csv(props_path, row.names = 1)
-real_cell_proportions = real_cell_proportions[colnames(read.csv('Cache/none_reference.csv', row.names = 1)),]
+real_cell_proportions = real_cell_proportions[,colnames(read.csv('Cache/none_reference.csv', row.names = 1))]
 ## Load packages
 source('./Scripts/LoadSoftware.r')
 source('./Scripts/MarkerSelection.r')
