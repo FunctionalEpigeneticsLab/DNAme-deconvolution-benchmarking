@@ -33,12 +33,11 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
-  x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
-  x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+  x[,5] <- rep(deconv, dim(predicted_cell_proportions)[1])
   
   colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
   l <- c()
@@ -57,12 +56,11 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
-  x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
-  x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+  x[,5] <- rep(deconv, dim(predicted_cell_proportions)[1])
   
   colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
   l <- c()
@@ -82,12 +80,11 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
-  x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
-  x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+  x[,5] <- rep(deconv, dim(predicted_cell_proportions)[1])
   
   colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
   l <- c()
@@ -109,12 +106,11 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
-  x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
-  x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+  x[,5] <- rep(deconv, dim(predicted_cell_proportions)[1])
   
   colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
   l <- c()
@@ -136,12 +132,11 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
-  x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
-  x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+  x[,5] <- rep(deconv, dim(predicted_cell_proportions)[1])
   
   colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
   l <- c()
@@ -160,7 +155,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
@@ -182,7 +177,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
@@ -200,35 +195,8 @@ for (u in normalizations){
   deconv = 'methylresolver'
   methylMix <- as.data.frame(df[rownames(ref),])
   methylSig <- as.data.frame(ref)
-  alpha <- seq(0, 0.95, 0.05)
-  y <- c()
   regressionFormula = as.formula(paste0("methylMix[,i] ~ ",paste(colnames(ref),sep="",collapse=" + ")))
-  for (k in alpha){
-    preds <- matrix(NA, ncol = length(colnames(ref)), nrow = length(colnames(df)))
-    colnames(preds) <- colnames(ref)
-    rownames(preds) <- colnames(df)
-    j = 1
-    for (i in colnames(df)){
-      deconvoluteSample <- robustbase::ltsReg(regressionFormula, data = methylSig, alpha = 0.5)
-      preds[j,] <- deconvoluteSample$coefficients[2:length(deconvoluteSample$coefficients)]
-      j <- j+1
-    }
-    
-    l <- c()
-    for(i in 1:dim(preds)[1]){
-      l<- c(l, preds[i,])}
-    x <- matrix(NA, nrow = length(l), ncol = 3)
-    x[,1] <- l
-    x[,3] <- rep(colnames(real_cell_proportions), dim(preds)[1])
-    colnames(x) <- c('Predicted value', 'True value','Celltype')
-    l <- c()
-    for(i in 1:dim(preds)[1]){
-      l<- c(l, real_cell_proportions[i,])}
-    x[,2] <- unlist(l)
-    x <- as.data.frame(x)
-  }
-  
-  alpha <- alpha[y == min(y)]
+  alpha <- 0.5
   preds <- matrix(NA, ncol = length(colnames(ref)), nrow = length(colnames(df)))
   colnames(preds) <- colnames(ref)
   rownames(preds) <- colnames(df)
@@ -242,7 +210,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
@@ -265,7 +233,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
@@ -298,7 +266,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
@@ -327,7 +295,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
@@ -356,7 +324,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
@@ -385,7 +353,7 @@ for (u in normalizations){
   l <- c()
   for(i in 1:dim(predicted_cell_proportions)[1]){
     l<- c(l, predicted_cell_proportions[i,])}
-  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 5)
   x[,1] <- unlist(l)
   x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
   x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
