@@ -1,12 +1,13 @@
 #!/bin/bash
-#### Important! If software dependencies have not been installed yet, run './Install_depencies.sh'
-#### Pass the following arguments in this order:
-#   - Path to data frame of reference methylation values (csv format - rows depicting CpGs - columns depicting samples).
-#   - Path to data frame of validation methylation values (csv format - rows depicting CpGs - columns depicting samples).
-#   - Path to data frame of actual proportions (csv format - rows depicting samples - columns depicting cell types).
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cd $SCRIPT_DIR
 ref_path=$1
 val_path=$2
 props_path=$3
-Rscript ./Scripts/IC_deconvolution_workflow_part1.r $ref_path $val_path
+p_val_cutoff=$4
+n_markers=$5
+
+Rscript ./Scripts/IC_deconvolution_workflow_part1.r $ref_path $val_path $props_path $p_val_cutoff $n_markers
 python ./Scripts/PerformMethatlas.py $props_path
 Rscript ./Scripts/IC_deconvolution_workflow_part2.r $props_path

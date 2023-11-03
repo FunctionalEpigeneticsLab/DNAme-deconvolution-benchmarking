@@ -14,6 +14,7 @@ cols = colnames(val)
 val = apply(val, 2, as.numeric)
 rownames(val) = rows
 colnames(val) = cols
+props = read.csv(args[3], row.names = 1)
 
 ## Load packages
 source('./Scripts/LoadSoftware.r')
@@ -21,11 +22,11 @@ source('./Scripts/MarkerSelection.r')
 
 ## Selection of marker CpGs
 celltypes = colnames(ref)
-for(i in c('Neu', 'NK', 'Bcell', 'CD4T', 'CD8T', 'Mono')){
+for(i in colnames(props)){
     celltypes[grepl(i, celltypes)] = i
 }
 
-output_selection = identifyCpgs(ref, celltypes, 0.05, 100)
+output_selection = identifyCpgs(ref, celltypes, args[4], args[5])
 mcpgs = output_selection$cpgs
 
 
