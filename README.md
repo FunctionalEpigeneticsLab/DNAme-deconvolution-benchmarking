@@ -54,6 +54,7 @@ Input arguments:
 
 Output argument:
   - Csv file containing predicted proportions along with actual proportions, predicted cell type and normalization and deconvolution algorithm that was applied.
+    (Cache directory contains produced mixture/reference files and MethAtlas results)
 
 Example code:
 ```
