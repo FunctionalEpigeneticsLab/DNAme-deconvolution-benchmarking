@@ -76,6 +76,6 @@ singularity exec docker://kobedr/deconvolution_benchmark:latest ./Run_deconv.sh 
 ```
 ## Demo run time
 
-Less than an hour.
+~40 minutes
 
 
