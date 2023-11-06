@@ -68,7 +68,7 @@ Example code:
 ```
 ## Docker/singularity
 
-This code can be run using our docker image (Python 3.10.6 & R 4.3.0): https://hub.docker.com/layers/kobedr/deconvolution_benchmark/latest/images/sha256-3fbddba7455d56f2f34f93d455a132022137cb78b6f3957f16570910b73e33e1?context=repo
+This code can be run using our docker image (Python 3.10.6 & R 4.3.0): https://hub.docker.com/repository/docker/kobedr/deconvolution_benchmark/general
 
 Singularity example for demo dataset:
 ```
