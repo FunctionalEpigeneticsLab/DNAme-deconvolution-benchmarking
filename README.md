@@ -36,6 +36,8 @@ R-packages:
   - ICeDT
   - FARDEEP
   - ADAPTS
+  - philentropy
+  - beeswarm
 
 Python-packages:
   - numpy
