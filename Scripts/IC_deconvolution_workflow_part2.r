@@ -196,7 +196,6 @@ for (method in normalizations){
   methylMix <- as.data.frame(df[rownames(ref),])
   methylSig <- as.data.frame(ref)
   regressionFormula = as.formula(paste0("methylMix[,i] ~ ",paste(colnames(ref),sep="",collapse=" + ")))
-  alpha <- 0.5
   preds <- matrix(NA, ncol = length(colnames(ref)), nrow = length(colnames(df)))
   colnames(preds) <- colnames(ref)
   rownames(preds) <- colnames(df)
@@ -365,6 +364,71 @@ for (method in normalizations){
     l<- c(l, real_cell_proportions[i,])}
   x[,2] <- unlist(l)
   longlist <- rbind(longlist, x)
+  
+if(!method%in%c('z_score', 'lognorm', 'col_z_score')){
+deconv = 'icedt'
+
+predicted_cell_proportions <- as.data.frame(t(ICeDT(as.matrix(df[rownames(ref),]), as.matrix(ref), rhoConverge = 0.0015, maxIter_PP = 30)$rho))[,colnames(real_cell_proportions)]
+
+  l <- c()
+  for(i in 1:dim(predicted_cell_proportions)[1]){
+    l<- c(l, predicted_cell_proportions[i,])}
+  x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+  x[,1] <- unlist(l)
+  x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
+  x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
+  x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
+  x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+  
+  colnames(x) <- c('Predicted.value', 'True.value','Celltype', 'method', 'datast', 'deconv')
+  l <- c()
+  for(i in 1:dim(predicted_cell_proportions)[1]){
+    l<- c(l, real_cell_proportions[i,])}
+  x[,2] <- unlist(l)
+  longlist <- rbind(longlist, x)
+}
+    
+    deconv = 'fardeep'
+
+    predicted_cell_proportions <- as.data.frame(fardeep(as.matrix(ref),as.matrix(df[rownames(ref),]))$abs.beta)[,colnames(real_cell_proportions)]
+
+      l <- c()
+      for(i in 1:dim(predicted_cell_proportions)[1]){
+        l<- c(l, predicted_cell_proportions[i,])}
+      x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+      x[,1] <- unlist(l)
+      x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
+      x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
+      x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
+      x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+
+      colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
+      l <- c()
+      for(i in 1:dim(predicted_cell_proportions)[1]){
+        l<- c(l, real_cell_proportions[i,])}
+      x[,2] <- unlist(l)
+      longlist <- rbind(longlist, x)
+
+    deconv = 'dcq'
+
+    predicted_cell_proportions <- as.data.frame(t(estCellPercent.DCQ(refExpr=as.matrix(ref), geneExpr=as.matrix(df[rownames(ref),]))))[,colnames(real_cell_proportions)]/100
+
+      l <- c()
+      for(i in 1:dim(predicted_cell_proportions)[1]){
+        l<- c(l, predicted_cell_proportions[i,])}
+      x <- matrix(NA, nrow = length(unlist(l)), ncol = 6)
+      x[,1] <- unlist(l)
+      x[,3] <- rep(colnames(real_cell_proportions), dim(predicted_cell_proportions)[1])
+      x[,4] <- rep(method, dim(predicted_cell_proportions)[1])
+      x[,5] <- rep(datast, dim(predicted_cell_proportions)[1])
+      x[,6] <- rep(deconv, dim(predicted_cell_proportions)[1])
+
+      colnames(x) <- c('Predicted value', 'True value','Celltype', 'Normalization method', 'Deconvolution method')
+      l <- c()
+      for(i in 1:dim(predicted_cell_proportions)[1]){
+        l<- c(l, real_cell_proportions[i,])}
+      x[,2] <- unlist(l)
+      longlist <- rbind(longlist, x)
 }
 
 ##Write results into 'Deconvolution_results.csv' file

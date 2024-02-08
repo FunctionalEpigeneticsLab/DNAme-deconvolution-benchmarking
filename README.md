@@ -33,6 +33,9 @@ R-packages:
   - corpcor
   - writexl
   - limma
+  - ICeDT
+  - FARDEEP
+  - ADAPTS
 
 Python-packages:
   - numpy
